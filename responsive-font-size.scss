@@ -1,0 +1,30 @@
+@mixin responsive-font-size($min-font-size, $max-font-size, $scale-factor, $font-size-step: 0.1em) {
+
+    @if $font-size-step <= 0 {
+        @warn "parameter to responsive-font-size: font-size-step must be greater than 0";
+    }
+    @else if $scale-factor <= 0 {
+        @warn "parameter to responsive-font-size: scale-factor must be greater than 0";
+    }
+    @else {
+        $min-screen-width: $min-font-size / $scale-factor / 1em * 1px;
+        $max-screen-width: $max-font-size / $scale-factor / 1em * 1px;
+        $width-step: $font-size-step / $scale-factor / 1em * 1px;
+        @if $width-step < 1px {
+            $width-step: 1px;
+        }
+
+        $width: $max-screen-width;
+
+        @while $width >= $min-screen-width {
+
+            $font-size: $width * $scale-factor / 1px * 1em;
+
+            @media all and (max-width: $width) {
+                font-size: $font-size;
+            }
+
+            $width: $width - $width-step;
+        }
+    }
+}
