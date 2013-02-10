@@ -23,12 +23,14 @@ It basically says:
 
  - for screen width smaller than 640px I want the font-size to be 1.8em
  - for screen width greater than 1200px I want it to be 3.7em
- - and just do the right thing in between
+ - scale the font appropriately in between
  - don't bother changing the font size by less than 0.3em
 
 The SASS code above will be compiled to the following CSS:
 
     p { font-size: 3.7em; }
+    @media all and (max-width: 640px) { p { font-size: 1.8em; } }
+    
     @media all and (max-width: 1200px) { p { font-size: 3.7em; } }
     @media all and (max-width: 1103px) { p { font-size: 3.34917em; } }
     @media all and (max-width: 1004px) { p { font-size: 3.0005em; } }
