@@ -5,13 +5,13 @@ A SASS mixin to ease creating layouts which scale font-size based on screen widt
 
 Usage:
 
-@import "responsive-font-size";
+    @import "responsive-font-size";
 
-p {
-    @include responsive-font-size (
-        $min-font-size: 1.8em,
-        $max-font-size: 3.7em,
-        $min-screen-width: 520px,
-        $max-screen-width: 1100px
-    );
-}
+    p {
+        @include responsive-font-size (
+            $min-font-size: 1.8em,
+            $max-font-size: 3.7em,
+            $min-screen-width: 520px,
+            $max-screen-width: 1100px
+        );
+    }
