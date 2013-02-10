@@ -3,7 +3,7 @@ responsive-font-size
 
 A SASS mixin to ease creating layouts which scale the font-size based on screen width. Relies on media queries.
 
-Supplied with four parameters, this mixin will intelligently figure out how to define the font-sizes (using media queries) to make the font scale together with screen width.
+Supplied with four parameters, this mixin will intelligently figure out the right media-query definitions to make the font scale together with screen width.
 
 Usage:
 
