@@ -11,6 +11,7 @@ p {
     @include responsive-font-size (
         $min-font-size: 1.8em,
         $max-font-size: 3.7em,
-        $scale-factor: 1 / 300
+        $min-screen-width: 520px,
+        $max-screen-width: 1100px
     );
 }
