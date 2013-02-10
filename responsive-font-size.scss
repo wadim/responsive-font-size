@@ -1,6 +1,9 @@
 @mixin responsive-font-size($min-font-size, $max-font-size, $min-screen-width, $max-screen-width, $font-size-step: 0.1em) {
 
     font-size: $max-font-size;
+    @media all and (max-width: $min-screen-width) {
+        font-size: $min-font-size;
+    }
 
     @if $font-size-step <= 0 {
         @warn "parameter to responsive-font-size: font-size-step must be greater than 0";
