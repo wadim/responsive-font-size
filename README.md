@@ -3,11 +3,17 @@ responsive-font-size
 
 A SASS mixin to ease creating layouts which scale the font-size based on screen width. Relies on media queries.
 
-Supplied with four parameters, this mixin will intelligently figure out the right media-query definitions to make the font scale together with screen width.
+Supplied with four parameters, this mixin will intelligently figure out the right media-query definitions to make the font scale fluently with screen width without you having to calculate the thresholds and sizes yourself.
 
 Usage:
 
     @import "responsive-font-size";
+    
+    p {
+        @include responsive-font-size (1.8em, 3.7em, 640px, 1200px, 0.3em);
+    }
+
+or (if you're in the mood to be explicit):
 
     p {
         @include responsive-font-size (
@@ -15,16 +21,17 @@ Usage:
             $max-font-size: 3.7em,
             $min-screen-width: 640px,
             $max-screen-width: 1200px,
-            $font-size-step: 0.3em /* optional parameter, default: 0.1em */
+            $font-size-step: 0.3em /* optional, default: 0.1em */
         );
-    } 
+    }
+
 
 It basically says:
 
  - for screen width smaller than 640px I want the font-size to be 1.8em
  - for screen width greater than 1200px I want it to be 3.7em
  - scale the font appropriately in between
- - don't bother changing the font size by less than 0.3em
+ - don't bother changing the font size by less than 0.3em (optional, default: 0.1em)
 
 The SASS code above will be compiled to the following CSS:
 
